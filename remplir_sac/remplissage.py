@@ -1,4 +1,12 @@
+import remplir_sac.creer_resultat as cr
+
+
 def calcul_rapport(objets):
+    '''
+    calculer le rapport valeur/poids de chaque objet
+    :param objets: les caractéristiques valeur et poids de tous les objets. type : dict
+    :return: rapport: les objets associés à leur rapport respectif valeur/poids. type : dict
+    '''
     rapport = {}
     for id,objet in objets.items():
         valeur = objet[1]
@@ -30,8 +38,8 @@ def remplir_sac(scenar,carac):
     rapport = calcul_rapport(scenar)
     rap_trie = trier_rapport(rapport)
     pd_max = carac[0]
-    valeur = 0
-    poidscourant = 0
+    valeur = 0  #initialiser le compteur de valeur ajoutée dans le sac
+    poidscourant = 0 #garder en mémoire le poids du sac pour savoir quand arrêter le remplissage
     indice = 0
     nb_objet = 0
     objets_ajoutes = []
@@ -39,7 +47,7 @@ def remplir_sac(scenar,carac):
     while continu:
         poids_a_ajouter = scenar[rap_trie[indice]][0]
         if poids_a_ajouter + poidscourant > pd_max:
-            continu = False
+            continu = False #arrêter le remplissage si le poids suivant dépasse le poids courant
         else:
             valeur_a_ajouter = scenar[rap_trie[indice]][1]
             valeur += valeur_a_ajouter
@@ -51,4 +59,4 @@ def remplir_sac(scenar,carac):
 
 
 
-    return nb_objet, objets_ajoutes, valeur, poidscourant
+    cr.resul(nb_objet, objets_ajoutes, valeur, poidscourant,pd_max,carac[1])

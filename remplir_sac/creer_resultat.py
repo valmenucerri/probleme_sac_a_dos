@@ -10,9 +10,9 @@ def resul(nb_objet, objets_ajoutes, valeur, poidscourant,pd_max,nbr_obj):
     :return: None
     '''
     with open("Resultats/sac_capa_max{}_{}_objets.txt".format(pd_max,nbr_obj),'w') as f:
-        f.write(str(nb_objet)+" sont entrés dans le sac"+"\n")
+        f.write(str(nb_objet)+" objets sont entrés dans le sac"+"\n")
         f.write("Il s'agit des objets :")
         for obj in objets_ajoutes:
             f.write(obj+",")
-        f.write("\n"+ "La valeur totale est de "+ str(valeur)"\n")
-        f.write("Le poids final du sac est de "+str(poidscourant)+"." + "C'est "+str(pd_max - poidscourant)+" unités en dessous du poids maximum")
+        f.write("\n"+ "La valeur totale est de "+ str(valeur)+"\n")
+        f.write("Le poids final du sac est de "+str(poidscourant)+". " + "C'est "+str(pd_max - poidscourant)+" unités en dessous du poids maximum")
