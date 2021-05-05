@@ -3,8 +3,10 @@ import sys
 
 if "__main__" == __name__:
     sac = ts.recup_sac(sys.argv)
+    carac = ts.caracteristique(sac)
     scenar = ts.detail_objet(sac)
-    rap = r.calcul_rapport(scenar)
-    rap_trie = r.trier_rapport(rap)
-    print(rap)
-    print(rap_trie)
+    nb_objet, objets_ajoutes, valeur, poidscourant =r.remplir_sac(scenar,carac)
+    print(nb_objet)
+    print(objets_ajoutes)
+    print(valeur)
+    print(poidscourant)
