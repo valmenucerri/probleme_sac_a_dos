@@ -1,0 +1,4 @@
+6 objets sont entrés dans le sac
+Il s'agit des objets :objet8,objet2,objet9,objet1,objet3,objet10,
+La valeur totale est de 977
+Le poids final du sac est de 25. C'est 5 unités en dessous du poids maximum

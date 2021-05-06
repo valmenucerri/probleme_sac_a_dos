@@ -1,7 +1,7 @@
 import remplir_sac.creer_resultat as cr
 
 
-def calcul_rapport(objets):
+def calcul_rapport_vp(objets):
     '''
     calculer le rapport valeur/poids de chaque objet
     :param objets: les caractéristiques valeur et poids de tous les objets. type : dict
@@ -15,7 +15,7 @@ def calcul_rapport(objets):
         rapport[id] = rap
     return rapport
 
-def trier_rapport(rapport):
+def trier_rapport_vp(rapport):
     '''
     Ranger le dico des rapports dans l'ordre décroissant des rapports
     :param rapport: le dico des rapports valeur/poids. type : dict
@@ -27,6 +27,33 @@ def trier_rapport(rapport):
 
     return rap_trie
 
+def calcul_rapport_pv(objets):
+    '''
+    calculer le rapport poids/valeur de chaque objet
+    :param objets: les caractéristiques valeur et poids de tous les objets. type : dict
+    :return: rapport: les objets associés à leur rapport respectif poids/valeur. type : dict
+    '''
+    rapport = {}
+    for id,objet in objets.items():
+        valeur = objet[1]
+        poids = objet[0]
+        rap = poids / valeur
+        rapport[id] = rap
+    return rapport
+
+def trier_rapport_pv(rapport):
+    '''
+    Ranger le dico des rapports dans l'ordre décroissant des rapports poids valeur
+    :param rapport: le dico des rapports poids/valeur. type : dict
+    :return: rap_trie: les objets dans l'ordre décroissant des rapports . type : list
+    '''
+    rap_trie = []
+    for id, rap in sorted(rapport.items(), key=lambda x: x[1]):
+        rap_trie.append(id)
+
+    return rap_trie
+
+
 
 def remplir_sac(scenar,carac):
     '''
@@ -35,8 +62,8 @@ def remplir_sac(scenar,carac):
     :param carac:
     :return:
     '''
-    rapport = calcul_rapport(scenar)
-    rap_trie = trier_rapport(rapport)
+    rapport = calcul_rapport_pv(scenar)
+    rap_trie = trier_rapport_pv(rapport)
     pd_max = carac[0]
     valeur = 0  #initialiser le compteur de valeur ajoutée dans le sac
     poidscourant = 0 #garder en mémoire le poids du sac pour savoir quand arrêter le remplissage
