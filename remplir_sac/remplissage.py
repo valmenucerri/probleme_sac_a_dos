@@ -62,8 +62,8 @@ def remplir_sac(scenar,carac):
     :param carac:
     :return:
     '''
-    rapport = calcul_rapport_pv(scenar)
-    rap_trie = trier_rapport_pv(rapport)
+    rapport = calcul_rapport_vp(scenar)
+    rap_trie = trier_rapport_vp(rapport)
     pd_max = carac[0]
     valeur = 0  #initialiser le compteur de valeur ajoutée dans le sac
     poidscourant = 0 #garder en mémoire le poids du sac pour savoir quand arrêter le remplissage
